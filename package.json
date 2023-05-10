@@ -1,0 +1,23 @@
+{
+  "name": "projet-14-enfants-streamer-back",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/O-clock-Quasar/projet-14-enfants-streamer-back.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/O-clock-Quasar/projet-14-enfants-streamer-back/issues"
+  },
+  "homepage": "https://github.com/O-clock-Quasar/projet-14-enfants-streamer-back#readme",
+  "dependencies": {
+    "pg": "^8.10.0"
+  }
+}

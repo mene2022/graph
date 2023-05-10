@@ -1,0 +1,4 @@
+%syntax-version=1.0.0
+%project=streamer
+
+init 2023-05-10T07:23:37Z elhadj <elhadjmene@gmail.com> # creation des tables
