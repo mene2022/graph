@@ -1,0 +1,6 @@
+type Mutation {
+    addUser(input: UserInput!):User
+    deleteUser(id: ID!): Boolean
+    updateUser(id: ID!, input: UserUpdateInput!): User
+}
+

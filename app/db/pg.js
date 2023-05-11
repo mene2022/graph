@@ -1,8 +1,16 @@
 const debug = require('debug')('SQL:log');
+
 const { Pool } = require('pg');
+const dotenv = require('dotenv');
 
-const pool = new Pool();
-
+const pool = new Pool({
+    host: process.env.PGHOST,
+    port: process.env.PGPORT,
+    database: process.env.PGDATABASE,
+    user: process.env.PGUSER,
+   
+  });
+  
 module.exports = {
     // On expose quand même le client original "au cas ou"
     originalClient: pool,

@@ -26,7 +26,7 @@ class CoreDatamapper {
     }
 
     async findAll() {
-        const result = await this.client.query('SELECT * FROM "${this.tableName}"');
+        const result = await this.client.query(`SELECT * FROM "${this.tableName}"`);
         return result.rows;
     }
 

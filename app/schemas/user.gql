@@ -1,0 +1,28 @@
+type User{
+     id: ID! 
+    username: String!
+    role_id: Role!
+  
+
+}
+
+
+type Role{
+
+    id: ID! 
+    name :String!
+
+}
+
+input UserInput {
+  username: String!
+  password: String!
+  role_id: Int!
+}
+
+input UserUpdateInput {
+  username: String
+  password: String
+  role_id: Int
+}
+
