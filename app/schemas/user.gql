@@ -1,18 +1,13 @@
 type User{
      id: ID! 
     username: String!
-    role_id: Role!
+    role: Role!
   
 
 }
 
 
-type Role{
 
-    id: ID! 
-    name :String!
-
-}
 
 input UserInput {
   username: String!
@@ -24,5 +19,6 @@ input UserUpdateInput {
   username: String
   password: String
   role_id: Int
+
 }
 

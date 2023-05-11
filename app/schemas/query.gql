@@ -1,7 +1,11 @@
 type Query{
     users: [User]
+    roles:[Role]
+    messages: [Message]
+    posts: [Post]
     user(id: Int): User
-   
+    role(id: Int): Role
+    message(id: Int): Message
 
 }
 

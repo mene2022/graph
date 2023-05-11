@@ -1,6 +1,25 @@
 type Mutation {
+    # user
     addUser(input: UserInput!):User
     deleteUser(id: ID!): Boolean
     updateUser(id: ID!, input: UserUpdateInput!): User
+
+    # role
+
+     addRole(input: RoleInput!):Role
+     updateRole(id: ID!, input: RoleUpdateInput!): Role
+     deleteRole(id: ID!): Boolean
+
+     #message   
+
+    addMessage(input: MessageInput!):Message
+    updateMessage(id: ID!, input: UserUpdateInput!): Message
+    deleteMessage(id: ID!): Boolean
+
+    # Post
+     addPost(input: PostInput!):Post    
+     updatePost(id: ID!, input: PostUpdateInput!): Post
+     deletePost(id: ID!): Boolean
+
 }
 

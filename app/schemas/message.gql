@@ -1,0 +1,16 @@
+type Message {
+  id: ID!
+  content: String
+  user: User
+
+}
+
+input MessageInput{
+    content: String!
+    user_id: ID!
+}
+
+input UserUpdateInput {
+  content: String
+  user_id: Int
+}
