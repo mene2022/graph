@@ -2,6 +2,7 @@ const MessageModel  = require('../datamappers/message');
 const UserModel  = require('../datamappers/user');
 const RoleModel  = require('../datamappers/role');
 const PostModel  = require('../datamappers/post');
+const TopicModel  = require('../datamappers/topic');
 
 
 module.exports={
@@ -10,9 +11,8 @@ module.exports={
 
    async addUser(_,args){
     const { input } = args;
-    console.log(input)
-    const user = await UserModel.create(input);
-    return user;
+    const newuser = await UserModel.create(input);
+    return newuser;
    },
 
    // mettre a jour un user 
@@ -149,6 +149,36 @@ module.exports={
         throw new Error(`Échec de la suppression de post avec l'identifiant ${id}`);
     }
     return deleted;
-   }
+   },
+
+// -------------------------------Topic------------------------------------------
+
+async addTopic(_,args){
+    const {input}=args;
+    const newtopic= await TopicModel.create(input);
+    return newtopic;
+
+},
+
+async updateTopic(_,args){
+    const {id,input}=args;
+    const foundtopic= await TopicModel.findByPk(id);
+    if(!foundtopic){
+        throw new Error(`Aucun topic trouvé avec l'ID ${id}`);
+    }
+
+    const topic= await TopicModel.update({id},input);
+     return topic;
+},
+
+async deleteTopic(_,{id}){
+    const deleted = await TopicModel.delete(id);
+
+    if(!deleted){
+        throw new Error(`Échec de la suppression de topic avec l'identifiant ${id}`)
+    }
+
+    return deleted;
+}
 
 }

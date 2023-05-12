@@ -3,9 +3,12 @@ type Query{
     roles:[Role]
     messages: [Message]
     posts: [Post]
+    topics: [Topic]
     user(id: Int): User
     role(id: Int): Role
     message(id: Int): Message
+    post(id: Int): Post
+    topic(id: Int): Topic
 
 }
 

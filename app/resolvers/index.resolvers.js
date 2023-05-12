@@ -3,6 +3,7 @@ const  Message =require('./message.resolver')
 const User= require('./user.resolver');
 const Mutation = require('./mutation.resolver');
 const Post = require('./post.resolver');
+const Topic = require('./topic.resolver');
 
 
 const resolvers = {
@@ -11,7 +12,8 @@ const resolvers = {
     User,
     Mutation,
     Message,
-    Post
+    Post,
+    Topic
  
  
 };

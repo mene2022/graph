@@ -21,5 +21,10 @@ type Mutation {
      updatePost(id: ID!, input: PostUpdateInput!): Post
      deletePost(id: ID!): Boolean
 
+    # Tpic
+    addTopic(input:TopicInput!):Topic
+    updateTopic(id: ID!,input:TopicUpdateInput!):Topic
+    deleteTopic(id: ID!): Boolean
+
 }
 

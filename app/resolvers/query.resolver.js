@@ -2,6 +2,7 @@ const UserModel  = require('../datamappers/user');
 const RoleModel  = require('../datamappers/role');
 const MessageModel  = require('../datamappers/message');
 const PostModel  = require('../datamappers/post');
+const TopicModel  = require('../datamappers/topic');
 
 
 module.exports={
@@ -47,4 +48,20 @@ module.exports={
         const posts= await PostModel.findAll();
         return posts;
     },
+
+    async post(_,args){
+        const post= await PostModel.findByPk(args.id);
+        return post;
+    },
+
+    async topics(){
+        const topics= await TopicModel.findAll();
+        return topics;
+    },
+   async topic(_,args){
+
+    const topic=await TopicModel.findByPk(args.id);
+    return topic;
+
+   }
 }

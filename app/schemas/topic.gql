@@ -1,0 +1,19 @@
+type Topic{
+    id: ID! 
+    title: String!
+    post: Post
+
+
+}
+
+
+input TopicInput {
+  title: String!
+  post_id: Int!
+}
+
+input TopicUpdateInput {
+  title: String
+  post_id: Int
+
+}
