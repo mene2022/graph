@@ -1,0 +1,20 @@
+type DrawingComment{
+    id: Int
+    content: String
+    drawing: Drawing
+    created_at: String
+    updated_at: String
+}
+
+
+input DrawingCommentInput{
+    content: String!
+    drawing_id: Int!
+
+}
+
+input DrawingCommentUpdateInput{
+     content: String
+     drawing_id: Int
+
+}

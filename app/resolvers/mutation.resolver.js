@@ -3,6 +3,10 @@ const UserModel  = require('../datamappers/user');
 const RoleModel  = require('../datamappers/role');
 const PostModel  = require('../datamappers/post');
 const TopicModel  = require('../datamappers/topic');
+const DrawingModel  = require('../datamappers/drawing');
+const DrawingCommentModel = require('../datamappers/drawing_comment');
+
+
 
 
 module.exports={
@@ -115,7 +119,7 @@ module.exports={
    async deleteMessage(_,{id}){
     const deleted= await MessageModel.delete(id)
     if(!deleted){
-        throw new Error(`Échec de la suppression de message avec l'identifiant ${id}`)
+        throw new Error(`Échec de la suppression de message avec l'identifiant ${args.id}`)
     }
     return deleted
 
@@ -146,7 +150,7 @@ module.exports={
    async deletePost(_,{id}){
     const deleted =await PostModel.delete(id)
     if(!deleted){
-        throw new Error(`Échec de la suppression de post avec l'identifiant ${id}`);
+        throw new Error(`Échec de la suppression de post avec l'identifiant ${args.id}`);
     }
     return deleted;
    },
@@ -175,9 +179,66 @@ async deleteTopic(_,{id}){
     const deleted = await TopicModel.delete(id);
 
     if(!deleted){
-        throw new Error(`Échec de la suppression de topic avec l'identifiant ${id}`)
+        throw new Error(`Échec de la suppression de topic avec l'identifiant ${args.id}`)
     }
 
+    return deleted;
+},
+
+// -------------------------Drawing------------------------------
+
+async addDrawing(_,args){
+    const {input}=args;
+    const newdrawing= await DrawingModel.create(input);
+    return newdrawing;
+
+},
+
+async updateDrawing(_,args){
+    console.log(args)
+    const {id,input}=args;
+    const founddrawing= await DrawingModel.findByPk(id);
+    if(!founddrawing){
+        throw new Error(`Aucun dessin trouvé avec l'ID ${id}`);
+    }
+
+    const drawing =await DrawingModel.update({id},input);
+    return drawing;
+},
+async deleteDrawing(_,{id}){
+
+    const deleted =await DrawingModel.delete(id)
+    if(!deleted){
+        throw new Error(`Échec de la suppression du dessin  avec l'identifiant ${args.id}`)
+    }
+
+    return deleted;
+},
+
+// ---------------------Drawing comment----------------------------------
+
+
+async addDrawingComment(_,args){
+    const {input}=args
+    const newdrawingComment= await DrawingCommentModel.create(input);
+    return newdrawingComment;
+},
+
+async updateDrawingComment(_,args){  
+    const {id,input}=args;
+    const foundDrawingComment= await DrawingCommentModel.findByPk(id);
+    if(!foundDrawingComment){
+        throw new Error(`Aucun commentaire de dessin trouvé avec l'ID ${id}`)
+    }
+
+    const drawingcomment= await DrawingCommentModel.update({id},input);
+    return drawingcomment;
+},
+async deleteDrawingComment(_,args){
+    const deleted =await DrawingCommentModel.delete(args.id);
+    if(!deleted){
+        throw new Error(`Échec de la suppression du commentaire avec l'identifiant ${args.id}`)
+    }
     return deleted;
 }
 

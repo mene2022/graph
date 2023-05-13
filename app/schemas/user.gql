@@ -1,8 +1,9 @@
 type User{
-     id: ID! 
-    username: String!
-    role: Role!
-  
+     id: ID
+    username: String
+    role: Role
+    created_at: String
+    updated_at: String
 
 }
 

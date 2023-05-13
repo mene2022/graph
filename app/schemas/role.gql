@@ -1,6 +1,8 @@
 type Role{
     id: ID! 
-    name :String!
+    name :String
+    created_at: String
+    updated_at: String
 }
 
 

@@ -1,0 +1,23 @@
+type Drawing{
+    id: ID
+    name: String
+    data: String  
+    user: User
+    created_at: String
+    updated_at: String
+}
+
+
+input DrawingInput{
+    name: String!
+    data:String!
+    user_id: Int!
+}
+
+input DrawingUpdateInput{
+  
+    name: String
+    data:String
+    user_id: Int
+
+}

@@ -3,6 +3,9 @@ const RoleModel  = require('../datamappers/role');
 const MessageModel  = require('../datamappers/message');
 const PostModel  = require('../datamappers/post');
 const TopicModel  = require('../datamappers/topic');
+const DrawingModel  = require('../datamappers/drawing');
+const DrawingCommentModel  = require('../datamappers/drawing_comment');
+
 
 
 module.exports={
@@ -63,5 +66,30 @@ module.exports={
     const topic=await TopicModel.findByPk(args.id);
     return topic;
 
+   },
+
+   async drawings(){
+
+    const drawings= await DrawingModel.findAll();
+    return drawings;
+   },
+
+   async drawing(_,args){
+
+    const drawing= await DrawingModel.findByPk(args.id)
+    return drawing;
+   },
+
+   async drawingComments(){
+    const drawingComments=await DrawingCommentModel.findAll();
+
+    return drawingComments;
+   },
+
+   async drawingComment(_,args){
+    const drawingComment= await DrawingCommentModel.findByPk(args.id);
+    return drawingComment;
    }
+
+
 }

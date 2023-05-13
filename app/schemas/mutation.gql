@@ -26,5 +26,19 @@ type Mutation {
     updateTopic(id: ID!,input:TopicUpdateInput!):Topic
     deleteTopic(id: ID!): Boolean
 
+
+   # Drawing
+     addDrawing(input: DrawingInput):Drawing  
+     updateDrawing(id: ID!,input:DrawingUpdateInput) :Drawing
+     deleteDrawing(id: ID!): Boolean
+
+
+    # drawingComment
+
+     addDrawingComment(input: DrawingCommentInput): DrawingComment
+     updateDrawingComment(id: ID!,input:DrawingCommentUpdateInput):DrawingComment
+     deleteDrawingComment(id: ID!): Boolean
+
+
 }
 

@@ -4,11 +4,15 @@ type Query{
     messages: [Message]
     posts: [Post]
     topics: [Topic]
+    drawings: [Drawing]
+    drawingComments: [DrawingComment]
     user(id: Int): User
     role(id: Int): Role
     message(id: Int): Message
     post(id: Int): Post
     topic(id: Int): Topic
+    drawing(id: Int): Drawing
+    drawingComment(id: Int): DrawingComment
 
 }
 
