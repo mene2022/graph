@@ -1,0 +1,14 @@
+type VideoLike {
+  id: Int
+  user_id: Int
+  video_id: Int
+  createdAt: String
+  updatedAt: String
+}
+
+input VideoLikeInput {
+  user_id: Int!
+  video_id: Int!
+
+}
+

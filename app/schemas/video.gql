@@ -3,12 +3,11 @@ type Video{
     url: String
     name: String
     type: String
+    likedBy: [User]
     created_at: String
     updated_at: String
 
 }
-
-
 
 
 input VideoInput {

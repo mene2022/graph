@@ -6,7 +6,8 @@ const TopicModel  = require('../datamappers/topic');
 const DrawingModel  = require('../datamappers/drawing');
 const DrawingCommentModel = require('../datamappers/drawing_comment');
 const VideoModel= require('../datamappers/video');
-const VideoCommentModl=require('../datamappers/video_comment')
+const VideoCommentModl=require('../datamappers/video_comment');
+const VideoLikeModel= require('../datamappers/video_like');
 
 
 
@@ -294,6 +295,26 @@ async deleteVideoComment(_,args){
     const deleted= await VideoCommentModl.delete(args.id);
     if(!deleted){
         throw new Error(`ECchec de suppression du commentaire de la video avec l id ${args.id}`)
+    }
+    return deleted;
+},
+
+// -----------------Vide_like----------------------
+
+async addVideoLike(_,args){
+    const {input}=args;
+
+    const likeVdieo= await VideoLikeModel.create(input);
+    return likeVdieo;
+
+},
+
+async deleteVideoLike(_,args){
+    const deleted= await VideoLikeModel.delete(args.id);
+
+    if(!deleted){
+        throw new Error(`Echec de suppression du like de la video avec l id ${args.id}`)
+
     }
     return deleted;
 }

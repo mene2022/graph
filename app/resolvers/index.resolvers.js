@@ -6,8 +6,8 @@ const Post = require('./post.resolver');
 const Topic = require('./topic.resolver');
 const Drawing=require('./drawing.resolver')
 const DrawingComment=require('./drawing_comment.resolver');
-const VideoComment=require('./video_comment.resolver')
-
+const VideoComment=require('./video_comment.resolver');
+const Video=require('./video.resolver');
 
 const resolvers = {
     // Resolvers du type Query du schema
@@ -19,7 +19,8 @@ const resolvers = {
     Topic,
     Drawing,
     DrawingComment,
-    VideoComment
+    VideoComment,
+    Video
 
  
  

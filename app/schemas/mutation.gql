@@ -51,6 +51,8 @@ type Mutation {
       updateVideoComment(id: ID!,input:VideoCommentUpdateInput):VideoComment
       deleteVideoComment(id: ID!): Boolean
 
-
+  # Video_like
+    addVideoLike(input:VideoLikeInput):VideoLike
+    deleteVideoLike(id: ID!): Boolean
 }
 
