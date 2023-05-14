@@ -1,0 +1,22 @@
+type VideoComment{
+    id: Int
+    content: String
+    video: Video
+    created_at: String
+    updated_at:String
+
+
+}
+
+input VideoCommentInput {
+  content: String!
+  video_id: Int!
+}
+
+input VideoCommentUpdateInput {
+  content: String
+  video_id: Int
+
+}
+
+

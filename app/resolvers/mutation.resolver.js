@@ -5,6 +5,8 @@ const PostModel  = require('../datamappers/post');
 const TopicModel  = require('../datamappers/topic');
 const DrawingModel  = require('../datamappers/drawing');
 const DrawingCommentModel = require('../datamappers/drawing_comment');
+const VideoModel= require('../datamappers/video');
+const VideoCommentModl=require('../datamappers/video_comment')
 
 
 
@@ -238,6 +240,60 @@ async deleteDrawingComment(_,args){
     const deleted =await DrawingCommentModel.delete(args.id);
     if(!deleted){
         throw new Error(`Échec de la suppression du commentaire avec l'identifiant ${args.id}`)
+    }
+    return deleted;
+},
+
+// ----------------------------Video---------------------
+
+async addVideo(_,args){
+    const {input}= args;
+
+    const newVideo= await VideoModel.create(input);
+    return newVideo;
+},
+
+async updateVideo(_,args){
+    const {id, input}=args;
+    const foundVideo= await VideoModel.findByPk(id);
+    if(!foundVideo){
+        throw new Error(`Acune  video trouvé avec l'id ${id}`)
+    }
+    const videoUdapte= await VideoModel.update({id}, input);
+    return videoUdapte;
+},
+
+async deleteVideo(_,args){
+    const deleted= await VideoModel.delete(args.id);
+    if(!deleted){
+        throw new Error(`Échec de la suppression de la video l'identifiant ${args.id}`)
+    }
+    return deleted;
+},
+
+// ----------------------Video comment--------------------------------
+
+async addVideoComment(_,args){
+    const {input}=args;
+    const newCommentVideo= await VideoCommentModl.create(input);
+    return newCommentVideo;
+},
+
+async updateVideoComment(_,args){
+    const {id,input}=args;
+    const foundCommentVdieo= await VideoCommentModl.findByPk(id);
+    if(!foundCommentVdieo){
+        throw new Error(`Acun commentaire  d'une video trouvé avec l'id ${id}`)
+    }
+
+    const updateCommentVideo= await VideoCommentModl.update({id},input);
+    return updateCommentVideo;
+},
+
+async deleteVideoComment(_,args){
+    const deleted= await VideoCommentModl.delete(args.id);
+    if(!deleted){
+        throw new Error(`ECchec de suppression du commentaire de la video avec l id ${args.id}`)
     }
     return deleted;
 }

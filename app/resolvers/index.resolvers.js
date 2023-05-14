@@ -5,7 +5,9 @@ const Mutation = require('./mutation.resolver');
 const Post = require('./post.resolver');
 const Topic = require('./topic.resolver');
 const Drawing=require('./drawing.resolver')
-const DrawingComment=require('./drawing_comment.resolver')
+const DrawingComment=require('./drawing_comment.resolver');
+const VideoComment=require('./video_comment.resolver')
+
 
 const resolvers = {
     // Resolvers du type Query du schema
@@ -16,7 +18,9 @@ const resolvers = {
     Post,
     Topic,
     Drawing,
-    DrawingComment
+    DrawingComment,
+    VideoComment
+
  
  
 };

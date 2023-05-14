@@ -1,18 +1,25 @@
 type Query{
-    users: [User]
-    roles:[Role]
-    messages: [Message]
-    posts: [Post]
-    topics: [Topic]
-    drawings: [Drawing]
-    drawingComments: [DrawingComment]
-    user(id: Int): User
-    role(id: Int): Role
-    message(id: Int): Message
-    post(id: Int): Post
-    topic(id: Int): Topic
-    drawing(id: Int): Drawing
-    drawingComment(id: Int): DrawingComment
+    users: [User]                    # Champ pour récupérer tous les utilisateurs
+    roles:[Role]                     # Champ pour récupérer tous les rôles
+    messages: [Message]               # Champ pour récupérer tous les messages
+    posts: [Post]                     # Champ pour récupérer tous les posts
+    topics: [Topic]                   # Champ pour récupérer tous les sujets
+    drawings: [Drawing]                # Champ pour récupérer tous les dessins 
+    drawingComments: [DrawingComment]  # Champ pour récupérer tous les commentaires des dessins
+    videos: [Video]                    # Champ pour récupérer toutes les videos
+    videoComments: [VideoComment]    # Champ pour récupérer tous les commentaires des videos
+ 
+
+    user(id: Int): User                       # Requête pour récupérer un utilisateur spécifique par ID
+    role(id: Int): Role                       # Requête pour récupérer un rôle spécifique par ID
+    message(id: Int): Message                 # Requête pour récupérer un message spécifique par ID
+    post(id: Int): Post                       # Requête pour récupérer un post spécifique par ID
+    topic(id: Int): Topic                     # Requête pour récupérer un sujet spécifique par ID
+    drawing(id: Int): Drawing                 # Requête pour récupérer un dessin spécifique par ID
+    drawingComment(id: Int): DrawingComment   # Requête pour récupérer un commentaire de dessin spécifique par ID
+    video(id: Int): Video                     # Requête pour récupérer une video  spécifique par ID
+    VideoComment(id: Int): VideoComment                # Requête pour récupérer un commentaire d'une video  spécifique par ID
+   
 
 }
 

@@ -40,5 +40,17 @@ type Mutation {
      deleteDrawingComment(id: ID!): Boolean
 
 
+    # Video
+     addVideo(input: VideoInput): Video
+     updateVideo(id: ID!,input: VideoUpdateInput): Video
+     deleteVideo(id: ID!): Boolean
+
+    # Video comment
+
+      addVideoComment(input: VideoCommentInput): VideoComment
+      updateVideoComment(id: ID!,input:VideoCommentUpdateInput):VideoComment
+      deleteVideoComment(id: ID!): Boolean
+
+
 }
 

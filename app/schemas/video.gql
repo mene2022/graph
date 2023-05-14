@@ -1,0 +1,26 @@
+type Video{
+    id: Int
+    url: String
+    name: String
+    type: String
+    created_at: String
+    updated_at: String
+
+}
+
+
+
+
+input VideoInput {
+  url: String!
+  name: String!
+  type: String
+}
+
+input VideoUpdateInput {
+  url: String
+  name: String
+  type: Int
+
+}
+

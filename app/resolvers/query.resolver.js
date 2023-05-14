@@ -5,6 +5,8 @@ const PostModel  = require('../datamappers/post');
 const TopicModel  = require('../datamappers/topic');
 const DrawingModel  = require('../datamappers/drawing');
 const DrawingCommentModel  = require('../datamappers/drawing_comment');
+const VideoModel= require('../datamappers/video');
+const VideoCommentModel=require('../datamappers/video_comment')
 
 
 
@@ -89,7 +91,29 @@ module.exports={
    async drawingComment(_,args){
     const drawingComment= await DrawingCommentModel.findByPk(args.id);
     return drawingComment;
+   },
+
+   async videos(){
+    const videos= await VideoModel.findAll();
+    return videos;
+   },
+
+   async video(_,args){
+    const video=await VideoModel.findByPk(args.id);
+    return video;
+   },
+
+   async videoComments(){
+    const allCommentsvideos=await VideoCommentModel.findAll();
+    return allCommentsvideos;
+   },
+
+   async VideoComment(_,args){
+    const commentVideo= await VideoCommentModel.findByPk(args.id);
+    console.log(commentVideo)
+    return commentVideo;
    }
+
 
 
 }

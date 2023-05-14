@@ -1,7 +1,7 @@
 type DrawingComment{
     id: Int
     content: String
-    drawing: Drawing
+    drawing: Drawing                            
     created_at: String
     updated_at: String
 }
@@ -18,3 +18,4 @@ input DrawingCommentUpdateInput{
      drawing_id: Int
 
 }
+ 
