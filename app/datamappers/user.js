@@ -18,6 +18,23 @@ class User extends CoreDatamapper {
         return result.rows;
       
     }
+    async findCommentsOnVideos(userId) {
+      const preparedQuery = {
+        text: `
+          SELECT video_comment.*
+          FROM "publish"
+          INNER JOIN video_comment
+          ON video_comment.id = "publish".video_comment_id
+          WHERE "publish".user_id = $1
+        `,
+        values: [userId],
+      };
+  
+      const result = await this.client.query(preparedQuery);
+      return result.rows;
+    }
+
+   
 
 
 

@@ -1,9 +1,10 @@
+scalar Date
 type DrawingComment{
     id: Int
     content: String
     drawing: Drawing                            
-    created_at: String
-    updated_at: String
+     created_at: Date
+    updated_at: Date
 }
 
 

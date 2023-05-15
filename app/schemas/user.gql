@@ -1,10 +1,13 @@
+scalar Date
+
 type User{
      id: ID
     username: String
     role: Role
     likedVideos: [Video]
-    created_at: String
-    updated_at: String
+    commentedVideos: [VideoComment] # Liste de commentaires vidéo que l'utilisateur a laissés.`.
+    created_at: Date
+    updated_at: Date
 
 }
 

@@ -1,9 +1,10 @@
+scalar Date
 type Topic{
     id: ID! 
     title: String
     post: Post
-    created_at: String
-    updated_at: String
+    created_at: Date
+    updated_at: Date
 
 
 }

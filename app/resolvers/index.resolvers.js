@@ -8,6 +8,7 @@ const Drawing=require('./drawing.resolver')
 const DrawingComment=require('./drawing_comment.resolver');
 const VideoComment=require('./video_comment.resolver');
 const Video=require('./video.resolver');
+const Date= require('./date.resolver')
 
 const resolvers = {
     // Resolvers du type Query du schema
@@ -20,7 +21,8 @@ const resolvers = {
     Drawing,
     DrawingComment,
     VideoComment,
-    Video
+    Video,
+    Date
 
  
  

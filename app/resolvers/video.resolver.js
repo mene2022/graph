@@ -1,3 +1,4 @@
+
 const VideoModel=require('../datamappers/video');
 
 module.exports={
@@ -7,6 +8,7 @@ module.exports={
         const videoLikByUsers= await VideoModel.findLikedBy(video.id);
         return videoLikByUsers;
 
-    }
+    },
 
+   
 }

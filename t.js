@@ -1,18 +1,22 @@
-const { Pool } = require('pg');
-const dotenv = require('dotenv');
+/*
+query {
+  videoComment(id: "<COMMENT_ID>") {
+    id
+    content
+    video {
+      id
+      url
+      name
+      type
+    }
+  }
+}
+Remplacez <COMMENT_ID> par l'identifiant du commentaire vidéo pour lequel vous souhaitez récupérer la vidéo associée.
 
-dotenv.config();
+Cette requête renverra les informations du commentaire vidéo ainsi que les détails de la vidéo associée, tels que l'ID, l'URL, le nom et le type de la vidéo.
 
-const pool = new Pool({
-  host: process.env.PGHOST,
-  port: process.env.PGPORT,
-  database: process.env.PGDATABASE,
-  user: process.env.PGUSER,
-  password: process.env.PGPASSWORD,
-});
+Assurez-vous de mettre à jour votre schéma et vos résolveurs GraphQL en conséquence pour prendre en compte cette relation.
 
-(async () => {
-  const client = await pool.connect();
-  console.log('Connected to the database successfully');
-  client.release();
-})();
+
+
+*/

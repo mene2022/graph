@@ -8,6 +8,7 @@ const DrawingCommentModel = require('../datamappers/drawing_comment');
 const VideoModel= require('../datamappers/video');
 const VideoCommentModl=require('../datamappers/video_comment');
 const VideoLikeModel= require('../datamappers/video_like');
+const PublishModel=require('../datamappers/publish')
 
 
 
@@ -317,6 +318,14 @@ async deleteVideoLike(_,args){
 
     }
     return deleted;
+},
+
+// ------------------Publish-------------------
+
+async addPublishComment(_,args){
+    const {input}=args;
+    const commenteVideo= await PublishModel.create(input);
+    return commenteVideo
 }
 
 }

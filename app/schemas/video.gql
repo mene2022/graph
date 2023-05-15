@@ -1,11 +1,12 @@
+scalar Date
 type Video{
     id: Int
     url: String
     name: String
     type: String
     likedBy: [User]
-    created_at: String
-    updated_at: String
+    created_at: Date
+    updated_at: Date
 
 }
 

@@ -1,9 +1,10 @@
+scalar Date
 type VideoLike {
   id: Int
   user_id: Int
   video_id: Int
-  createdAt: String
-  updatedAt: String
+  created_at: Date
+  updated_at: Date
 }
 
 input VideoLikeInput {

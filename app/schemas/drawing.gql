@@ -1,10 +1,11 @@
+scalar Date
 type Drawing{
     id: ID
     name: String
     data: String  
     user: User
-    created_at: String
-    updated_at: String
+     created_at: Date
+    updated_at: Date
 }
 
 

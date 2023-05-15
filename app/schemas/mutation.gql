@@ -54,5 +54,8 @@ type Mutation {
   # Video_like
     addVideoLike(input:VideoLikeInput):VideoLike
     deleteVideoLike(id: ID!): Boolean
+
+  #Publish
+   addPublishComment(input: PublishInput): Publish
 }
 

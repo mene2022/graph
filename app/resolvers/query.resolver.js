@@ -110,7 +110,7 @@ module.exports={
 
    async VideoComment(_,args){
     const commentVideo= await VideoCommentModel.findByPk(args.id);
-    console.log(commentVideo)
+   
     return commentVideo;
    }
 

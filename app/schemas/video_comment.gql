@@ -1,9 +1,11 @@
+scalar Date
 type VideoComment{
     id: Int
     content: String
     video: Video
-    created_at: String
-    updated_at:String
+    usersCommentedOnVideo: [User]  # Liste des utilisateurs qui ont commenté une vidéo
+    created_at: Date
+    updated_at: Date
 
 
 }

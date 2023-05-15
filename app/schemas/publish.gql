@@ -1,0 +1,15 @@
+type Publish{
+    id: ID
+    user_id:Int
+    video_comment_id:Int
+
+
+}
+
+
+input PublishInput {
+  user_id: Int!
+  video_comment_id: Int!
+
+}
+
