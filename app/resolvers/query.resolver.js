@@ -17,7 +17,7 @@ module.exports={
         return AllUsers;
     },
 
-    async user(_,args){
+    async getUserById(_,args){
        
         const user= await UserModel.findByPk(args.id);
         return user;
@@ -29,7 +29,7 @@ module.exports={
         return AllRoles;
     },
 
-    async role(_,args){
+    async getRoleById(_,args){
        
         const role= await RoleModel.findByPk(args.id);
         return role;
@@ -42,7 +42,7 @@ module.exports={
         return AllMessage;
 
     },
-    async message(_,args){
+    async getMessageById(_,args){
        
         const message= await MessageModel.findByPk(args.id);
         return message;
@@ -54,7 +54,7 @@ module.exports={
         return posts;
     },
 
-    async post(_,args){
+    async getPostById(_,args){
         const post= await PostModel.findByPk(args.id);
         return post;
     },
@@ -63,7 +63,7 @@ module.exports={
         const topics= await TopicModel.findAll();
         return topics;
     },
-   async topic(_,args){
+   async getTopicById(_,args){
 
     const topic=await TopicModel.findByPk(args.id);
     return topic;
@@ -76,7 +76,7 @@ module.exports={
     return drawings;
    },
 
-   async drawing(_,args){
+   async getDrawingById(_,args){
 
     const drawing= await DrawingModel.findByPk(args.id)
     return drawing;
@@ -88,9 +88,15 @@ module.exports={
     return drawingComments;
    },
 
-   async drawingComment(_,args){
+   async getDrawingCommentById(_,args){
     const drawingComment= await DrawingCommentModel.findByPk(args.id);
     return drawingComment;
+   },
+
+   async getCommentsByDrawing(_,args){
+    const commentsBydrawings=await DrawingCommentModel.getCommentsByDrawing(args.id);
+    return commentsBydrawings;
+
    },
 
    async videos(){
@@ -98,7 +104,7 @@ module.exports={
     return videos;
    },
 
-   async video(_,args){
+   async getVideoById(_,args){
     const video=await VideoModel.findByPk(args.id);
     return video;
    },
@@ -108,12 +114,19 @@ module.exports={
     return allCommentsvideos;
    },
 
-   async VideoComment(_,args){
+   async getCommentedVideoById(_,args){
     const commentVideo= await VideoCommentModel.findByPk(args.id);
    
     return commentVideo;
-   }
+   },
 
+
+     async getCommentsByVideo(_,args){
+        console.log(args.id)
+        const commentsVideo=await VideoCommentModel.findCommentsByVideo(args.id);
+        console.log(commentsVideo)
+        return commentsVideo;
+     }
 
 
 }

@@ -1,0 +1,18 @@
+
+type DrawingLike{
+    id: ID
+    user_id:Int
+    drawing_id:Int
+}
+
+
+input DrawingLikeInput{
+     user_id:Int!
+    drawing_id:Int!
+
+}
+
+
+
+
+ 

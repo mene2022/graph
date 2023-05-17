@@ -11,9 +11,3 @@ input CommentInput{
     drawing_comment_id: Int!
 
 }
-
-input CommentUpdateInput{
-     user_id: Int
-     drawing_comment_id: Int
-
-}

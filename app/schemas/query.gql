@@ -1,3 +1,4 @@
+# Le type racine pour les requêtes sur votre API GraphQL
 type Query{
     users: [User]                    # Champ pour récupérer tous les utilisateurs
     roles:[Role]                     # Champ pour récupérer tous les rôles
@@ -10,15 +11,18 @@ type Query{
     videoComments: [VideoComment]    # Champ pour récupérer tous les commentaires des videos
  
 
-    user(id: Int): User                       # Requête pour récupérer un utilisateur spécifique par ID
-    role(id: Int): Role                       # Requête pour récupérer un rôle spécifique par ID
-    message(id: Int): Message                 # Requête pour récupérer un message spécifique par ID
-    post(id: Int): Post                       # Requête pour récupérer un post spécifique par ID
-    topic(id: Int): Topic                     # Requête pour récupérer un sujet spécifique par ID
-    drawing(id: Int): Drawing                 # Requête pour récupérer un dessin spécifique par ID
-    drawingComment(id: Int): DrawingComment   # Requête pour récupérer un commentaire de dessin spécifique par ID
-    video(id: Int): Video                     # Requête pour récupérer une video  spécifique par ID
-    VideoComment(id: Int): VideoComment                # Requête pour récupérer un commentaire d'une video  spécifique par ID
+    getUserById(id: Int): User                       # Requête pour récupérer un utilisateur spécifique par ID
+    getRoleById(id: Int): Role                       # Requête pour récupérer un rôle spécifique par ID
+    getMessageById(id: Int): Message                 # Requête pour récupérer un message spécifique par ID
+    getPostById(id: Int): Post                       # Requête pour récupérer un post spécifique par ID
+    getTopicById(id: Int): Topic                     # Requête pour récupérer un sujet spécifique par ID
+    getDrawingById(id: Int): Drawing                 # Requête pour récupérer un dessin spécifique par ID
+    getDrawingCommentById(id: Int): DrawingComment   # Requête pour récupérer un commentaire de dessin spécifique par ID
+    getVideoById(id: Int): Video                     # Requête pour récupérer une video  spécifique par ID
+    getCommentedVideoById(id: Int): VideoComment       # Requête pour récupérer un commentaire d'une video  spécifique par ID
+
+    getCommentsByVideo(id: ID!): [VideoComment]        # requete pour récuprere tous les commentaire d'une video spécifique par ID
+    getCommentsByDrawing(id: ID!): [DrawingComment]   # requete pour récuprere tous les commentaire d'une dessin spécifique par ID
    
 
 }

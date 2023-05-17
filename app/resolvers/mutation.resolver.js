@@ -8,7 +8,9 @@ const DrawingCommentModel = require('../datamappers/drawing_comment');
 const VideoModel= require('../datamappers/video');
 const VideoCommentModl=require('../datamappers/video_comment');
 const VideoLikeModel= require('../datamappers/video_like');
-const PublishModel=require('../datamappers/publish')
+const PublishModel=require('../datamappers/publish');
+const CommentModel= require('../datamappers/comment')
+const DrawingLikeModel= require('../datamappers/drawing_like')
 
 
 
@@ -326,6 +328,44 @@ async addPublishComment(_,args){
     const {input}=args;
     const commenteVideo= await PublishModel.create(input);
     return commenteVideo
+},
+
+async deletePublishComment(_,args){
+    const deleted = await PublishModel.delete(args.id);
+    if(!deleted){
+        throw new Error(`Echec de suppression du commentaire de la video avec l id ${args.id}`)
+
+    }
+    return deleted;
+
+},
+
+// -------------------------------Drawing like----------------
+
+ async addDrawingLike(_,args){
+    const {input}=args
+    const drawingLike= await DrawingLikeModel.create(input);
+    return drawingLike;
+ },
+ async deleteDrawingLike(_,args){
+    const deleted=await DrawingLikeModel.delete(args.id)
+    if(!deleted){
+        throw new Error(`Echec de suppression du like du dessin avec l id ${args.id}`)
+
+    }
+    return deleted
+
+ },
+//  --------------------Comment ------------------------
+
+async addCommentDrawing(_,args){
+    const {input}=args
+
+    const commentsDrawing=await CommentModel.create(input)
+    return commentsDrawing;
+
 }
+
+
 
 }

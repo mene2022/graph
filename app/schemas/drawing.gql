@@ -4,7 +4,8 @@ type Drawing{
     name: String
     data: String  
     user: User
-     created_at: Date
+    likedByUsers: [User] 
+    created_at: Date
     updated_at: Date
 }
 

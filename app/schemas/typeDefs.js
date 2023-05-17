@@ -2,7 +2,8 @@ const fs = require('node:fs');
 const path = require('node:path');
 const { EOL } = require('node:os');
 
-const schemaNames = ['query', 'user','role','message','post','topic','drawing','drawing_comment','comment','video','video_comment','video_like','publish','mutation'];
+const schemaNames = ['query', 'user','role','message','post','topic','drawing','drawing_comment','comment','video','video_comment',
+,'drawing_like','video_like','publish','mutation'];
 
 const schemas = schemaNames.map(
     (schemaName) => fs.readFileSync(

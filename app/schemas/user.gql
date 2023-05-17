@@ -5,7 +5,9 @@ type User{
     username: String
     role: Role
     likedVideos: [Video]
-    commentedVideos: [VideoComment] # Liste de commentaires vidéo que l'utilisateur a laissés.`.
+    publishedComments: [VideoComment]  # Liste de commentaires vidéo que l'utilisateur a laissés.`.
+    likedDrawings: [Drawing]
+    comments: [DrawingComment]
     created_at: Date
     updated_at: Date
 
@@ -26,4 +28,5 @@ input UserUpdateInput {
   role_id: Int
 
 }
+
 

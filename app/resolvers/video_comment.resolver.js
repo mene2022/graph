@@ -9,14 +9,12 @@ module.exports={
     },
   
 
-        async usersCommentedOnVideo(video_comment){
+        async publishers(video_comment){
             const usersCommentedOnVideo= await VideoComment.findUsersCommentedOnVideo(video_comment.id) ;
 
-            console.log('-------------------------')
-            console.log(usersCommentedOnVideo)
+    
             return usersCommentedOnVideo;
         }
     
-        // findVideosCommentedByUser
 
 }

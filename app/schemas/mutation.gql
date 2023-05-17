@@ -57,5 +57,16 @@ type Mutation {
 
   #Publish
    addPublishComment(input: PublishInput): Publish
+   deletePublishComment(id: ID!): Boolean
+
+
+  #drawing_like
+
+   addDrawingLike(input:DrawingLikeInput):DrawingLike
+   deleteDrawingLike(id: ID!):Boolean
+
+  #  Comment
+
+   addCommentDrawing(input:CommentInput): Comment
 }
 
