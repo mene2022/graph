@@ -8,16 +8,15 @@ const DrawingCommentModel  = require('../datamappers/drawing_comment');
 const VideoModel= require('../datamappers/video');
 const VideoCommentModel=require('../datamappers/video_comment')
 
+const{Islogg}=require('../services/auth.js')
+
 
 
 module.exports={
     async users(_,__,context){
         console.log(context)
-
+        Islogg(context.userId)
       
-        // if(!context.userId){
-        //     throw new Error('Vous devez être connecté pour effectuer cette action');
-        // }
 
         const AllUsers= await UserModel.findAll();
         return AllUsers;

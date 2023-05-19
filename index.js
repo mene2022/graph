@@ -16,7 +16,7 @@ const server = new ApolloServer({
    
     // C'est la logique de récupération des données fourni en réponse aux requêtes sur le serveur
     resolvers,
-   
+    introspection: true,
 
    
     
@@ -27,50 +27,36 @@ const server = new ApolloServer({
 
 const port = process.env.PORT || 6000;
 
+
 (async () => {
     const { url } = await startStandaloneServer(server, {
         listen: { port },
-        context: async({ req }) => {
-           
-          
-            const authorization = req.headers.authorization || '';
-            const token = authorization.replace('Bearer ', '');
-             
-           
-        //   console.log(jwt.verify(token, process.env.JWT_SECRET))
-           
-          
-            let userId = null;
-          
-               
+      context:({ req })=>{
+        const authorization = req.headers.authorization || '';
+        const secret = process.env.JWTSECRET;
+       
+        let userId=null;
+        
+        const token = authorization.replace('Bearer ', '');
     
+        if(token!==''){
+           
+
             try {
-                const decoded = jwt.verify(token, process.env.JWT_SECRET);
+                const decoded = jwt.verify(token, secret);
                 userId = decoded.userId;
-               
-                
-                
-            } catch(err) {
-                throw new GraphQLError('Authentication failed.', {
-                    extensions: {
-                        code: 'UNAUTHORIZED',
-                        http: {
-                            status: 401,
-                        },
-                    },
-                });
+                console.log(decoded);
+            } catch (error) {
+                console.error("Failed to verify token: ", error);
             }
-            return {userId};
-    
-         
-           
-            
         }
+        
+       return{userId}
+      }
      
      
         
     
-   
  
    
        
