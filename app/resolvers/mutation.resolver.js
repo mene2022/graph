@@ -11,6 +11,11 @@ const VideoLikeModel= require('../datamappers/video_like');
 const PublishModel=require('../datamappers/publish');
 const CommentModel= require('../datamappers/comment')
 const DrawingLikeModel= require('../datamappers/drawing_like')
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+const { GraphQLError } = require('graphql');
+
+require('dotenv').config();
 
 
 
@@ -20,7 +25,12 @@ module.exports={
     // ajout d'un user
 
    async addUser(_,args){
-    const { input } = args;
+     // Hachez le mot de passe avant de le sauvegarder
+     const { input } = args;
+     const saltRounds = 10;
+     const hashedPassword = await bcrypt.hash(input.password, saltRounds);
+    
+    input.password = hashedPassword;
     const newuser = await UserModel.create(input);
     return newuser;
    },
@@ -33,6 +43,13 @@ module.exports={
     if (!userfound) {
         throw new Error(`Aucun utilisateur trouvé avec l'ID ${id}`);
       }
+
+       // Vérifiez si le mot de passe est parmi les champs à mettre à jour
+    if (input.password) {
+        const saltRounds = 10;
+        const hashedPassword = await bcrypt.hash(input.password, saltRounds);
+        input.password = hashedPassword;
+    }
        // Mettez à jour l'utilisateur
 
       const user= await UserModel.update({id},input);
@@ -364,8 +381,42 @@ async addCommentDrawing(_,args){
     const commentsDrawing=await CommentModel.create(input)
     return commentsDrawing;
 
+},
+
+// ----------------loggin
+
+
+async login(_,{username, password}){
+   
+    const user =await UserModel.findOne(username);
+    if (!user) {
+        throw new Error('No such user found');
+      }
+
+    // Comparer le mot de passe avec le hash stocké dans la base de données
+    const valid = await bcrypt.compare(password, user.password);
+    if (!valid) {
+        throw new GraphQLError('Authentication failed.', {
+            extensions: {
+                code: 'UNAUTHORIZED',
+                http: {
+                    status: 401,
+                },
+            },
+        });
+    }
+
+    // Créer un JWT et le retourner
+    const token = jwt.sign({userId: user.id}, process.env.JWT_SECRET, { expiresIn: '1h' });
+ 
+
+    return {
+        token,
+        user,
+      };
+
+
+
+
 }
-
-
-
 }

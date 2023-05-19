@@ -11,14 +11,22 @@ const VideoCommentModel=require('../datamappers/video_comment')
 
 
 module.exports={
-    async users(){
+    async users(_,__,context){
+        console.log(context)
+
+      
+        // if(!context.userId){
+        //     throw new Error('Vous devez être connecté pour effectuer cette action');
+        // }
 
         const AllUsers= await UserModel.findAll();
         return AllUsers;
     },
 
-    async getUserById(_,args){
-       
+    async getUserById(_,args,context){
+        
+        console.log(context)
+
         const user= await UserModel.findByPk(args.id);
         return user;
     },
@@ -54,7 +62,8 @@ module.exports={
         return posts;
     },
 
-    async getPostById(_,args){
+    async getPostById(_,args,context){
+      
         const post= await PostModel.findByPk(args.id);
         return post;
     },

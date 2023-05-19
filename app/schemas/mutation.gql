@@ -68,5 +68,10 @@ type Mutation {
   #  Comment
 
    addCommentDrawing(input:CommentInput): Comment
+
+
+  #  loggin
+
+  login(username: String!, password: String!): AuthPayload
 }
 

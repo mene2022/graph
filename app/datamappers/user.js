@@ -65,6 +65,15 @@ class User extends CoreDatamapper {
       const result = await this.client.query(preparedQuery);
       return result.rows;
     }
+    async findOne(username){
+      const  preparedQuery={
+        text:`SELECT * FROM "user" WHERE username = $1`,
+        values:[username]
+      };
+      const result = await this.client.query(preparedQuery);
+      return result.rows[0];
+
+    }
    
 
 

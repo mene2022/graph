@@ -29,4 +29,9 @@ input UserUpdateInput {
 
 }
 
+type AuthPayload {
+  token: String
+  user: User
+}
+
 
