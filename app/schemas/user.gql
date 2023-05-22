@@ -4,6 +4,9 @@ type User{
      id: ID
     username: String
     role: Role
+    age: Int
+    email: String
+    gender: String
     likedVideos: [Video]
     publishedComments: [VideoComment]  # Liste de commentaires vidéo que l'utilisateur a laissés.`.
     likedDrawings: [Drawing]
@@ -20,12 +23,18 @@ input UserInput {
   username: String!
   password: String!
   role_id: Int!
+  email: String!
+  age: Int!
+  gender: String!
 }
 
 input UserUpdateInput {
   username: String
   password: String
   role_id: Int
+   email: String
+  age: Int
+  gender: String
 
 }
 

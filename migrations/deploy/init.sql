@@ -11,7 +11,8 @@ CREATE TABLE "role" (
 
 CREATE TABLE "user" (
   "id" INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-  "username" TEXT NOT NULL,
+  "username" TEXT NOT NULL UNIQUE,
+  "email" TEXT NOT NULL UNIQUE,
   "password" TEXT NOT NULL,
   "age" INTEGER NOT NULL,
   "gender" TEXT NOT NULL,

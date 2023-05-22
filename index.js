@@ -45,9 +45,9 @@ const port = process.env.PORT || 6000;
             try {
                 const decoded = jwt.verify(token, secret);
                 userId = decoded.userId;
-                console.log(decoded);
+
             } catch (error) {
-                console.error("Failed to verify token: ", error);
+                // console.error("Failed to verify token: ", error);
             }
         }
         

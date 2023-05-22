@@ -26,11 +26,18 @@ module.exports={
 
    async signup(_,args){
     const { input } = args;
-    const existingUser= await UserModel.findOne(input.username)
+    const existingUserName= await UserModel.findOne(input.username,'username');
+    const existingUserEmail= await UserModel.findOne(input.email,'email');
+    console.log(existingUserEmail)
 
-    if(existingUser){
-        throw new Error('usename existe déja')
+
+    if(existingUserName){
+        throw new Error('usename  existe déja')
     }
+    if(existingUserEmail){
+        throw new Error(' email existe déja')
+    }
+    
      // Hachez le mot de passe avant de le sauvegarder
 
     
