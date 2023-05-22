@@ -27,8 +27,9 @@ INSERT INTO "topic" ("title", "post_id") VALUES
 
 -- Drawing table
 INSERT INTO "drawing" ("name", "data", "user_id") VALUES 
-('Drawing1', 'data1', 1),
-('Drawing2', 'data2', 2);
+('Drawing1', 'https://example.com/image1.jpg', 1),
+('Drawing2', 'https://example.com/image2.jpg', 2);
+
 
 -- Drawing Comment table
 INSERT INTO "drawing_comment" ("content", "drawing_id") VALUES 
