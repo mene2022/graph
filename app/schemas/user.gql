@@ -7,6 +7,9 @@ type User{
     age: Int
     email: String
     gender: String
+    interest1: String
+    interest2: String
+    interest2: String
     likedVideos: [Video]
     publishedComments: [VideoComment]  # Liste de commentaires vidéo que l'utilisateur a laissés.`.
     likedDrawings: [Drawing]
@@ -26,6 +29,9 @@ input UserInput {
   email: String!
   age: Int!
   gender: String!
+  interest1: String
+  interest2: String
+  interest2: String
 }
 
 input UserUpdateInput {
@@ -35,6 +41,9 @@ input UserUpdateInput {
    email: String
   age: Int
   gender: String
+  interest1: String
+  interest2: String
+  interest2: String
 
 }
 
