@@ -13,6 +13,8 @@ CREATE TABLE "user" (
   "id" INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
   "username" TEXT NOT NULL,
   "password" TEXT NOT NULL,
+  "age" INTEGER NOT NULL,
+  "gender" TEXT NOT NULL,
   "role_id" INTEGER NOT NULL REFERENCES "role"("id"),
   "created_at" TIMESTAMPTZ NOT NULL DEFAULT now(),
   "updated_at" TIMESTAMPTZ
@@ -46,7 +48,7 @@ CREATE TABLE "topic" (
 CREATE TABLE "drawing" (
   "id" INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
   "name" TEXT NOT NULL,
-  "data" BYTEA NOT NULL,
+  "data" TEXT NOT NULL,
   "user_id" INTEGER NOT NULL REFERENCES "user"("id"),
   "created_at" TIMESTAMPTZ NOT NULL DEFAULT now(),
   "updated_at" TIMESTAMPTZ

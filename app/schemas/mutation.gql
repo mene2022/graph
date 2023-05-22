@@ -1,6 +1,6 @@
 type Mutation {
     # user
-    addUser(input: UserInput!):User
+    signup(input: UserInput!):AuthPayload
     deleteUser(id: ID!): Boolean
     updateUser(id: ID!, input: UserUpdateInput!): User
 

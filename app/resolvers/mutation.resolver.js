@@ -24,15 +24,28 @@ module.exports={
 
     // ajout d'un user
 
-   async addUser(_,args){
+   async signup(_,args){
+    const { input } = args;
+    const existingUser= await UserModel.findOne(input.username)
+
+    if(existingUser){
+        throw new Error('usename existe déja')
+    }
      // Hachez le mot de passe avant de le sauvegarder
-     const { input } = args;
+
+    
      const saltRounds = 10;
      const hashedPassword = await bcrypt.hash(input.password, saltRounds);
     
     input.password = hashedPassword;
     const newuser = await UserModel.create(input);
-    return newuser;
+
+     // Créer un JWT et le retourner
+     const token = jwt.sign({userId: newuser.id}, process.env.JWTSECRET, { expiresIn: '1h' });
+    return {
+        token,
+        user: newuser
+    };
    },
 
    // mettre a jour un user 
