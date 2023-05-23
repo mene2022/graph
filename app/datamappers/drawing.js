@@ -20,6 +20,20 @@ class Drawing extends CoreDatamapper {
         return result.rows;
       }
 
+      async randomDrawing() {
+        const count = await this.count(); 
+        const randomIndex = Math.floor(Math.random() * count); 
+    
+        const preparedQuery = {
+            text: `SELECT * FROM "${this.tableName}" OFFSET $1 LIMIT 1;`,
+            values: [randomIndex],
+        };
+    
+        const result = await this.client.query(preparedQuery);
+        return result.rows[0];
+    }
+    
+
 }
 
 module.exports = new Drawing(client);

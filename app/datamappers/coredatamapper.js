@@ -74,6 +74,15 @@ class CoreDatamapper {
         const result = await this.client.query(`DELETE FROM "${this.tableName}" WHERE id = $1`, [id]);
         return !!result.rowCount;
     }
+    async count(){
+        const result= await this.client.query(`SELECT COUNT(*) FROM ${this.tableName}`);
+        const count= parseInt(result.rows[0].count)
+        return count;
+    }
+
+   
+
+  
 }
 
 module.exports = CoreDatamapper;

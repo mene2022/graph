@@ -23,6 +23,8 @@ type Query{
 
     getCommentsByVideo(id: ID!): [VideoComment]        # requete pour récuprere tous les commentaire d'une video spécifique par ID
     getCommentsByDrawing(id: ID!): [DrawingComment]   # requete pour récuprere tous les commentaire d'une dessin spécifique par ID
+
+    radndomDrawing: Drawing
    
 
 }

@@ -134,7 +134,19 @@ module.exports={
         const commentsVideo=await VideoCommentModel.findCommentsByVideo(args.id);
         console.log(commentsVideo)
         return commentsVideo;
-     }
+     },
+
+
+
+    //  renvoie un dessin au hassard
+
+    async radndomDrawing(){
+       const randomDrawing= await DrawingModel.randomDrawing();
+      
+       return randomDrawing;
+        
+    }
+  
 
 
 }
